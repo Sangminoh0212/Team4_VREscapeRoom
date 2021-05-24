@@ -19,11 +19,8 @@ public class TouchAndDie : MonoBehaviour
             InfoText.text = string.Format("Yor are trapped");
             Invoke("GameOverMessage", 2.0f);
         }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("MainCamera"))
-        {
+            else if (other.gameObject.CompareTag("MainCamera"))
+            {
             electricSound.Play();
             transform.GetChild(0).gameObject.SetActive(true);
             InfoText.text = string.Format("Yor are trapped");
