@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class KeyDoorInteraction : MonoBehaviour
 {
-    public bool dooropen = false;
-
+    public GameObject handle;
+    public GameObject obstracle;
     // 일단은 닿기만 하면 사라지게 만듬. 나중에 닿으면 true -> 문 door operator 가능하게 만들 예정
-    public void lockeddoor()
+
+    public void SelectEntered(SelectEnterEventArgs args)
     {
-        Destroy(transform.gameObject);
+        Debug.Log("Key!!"); 
+        handle.SetActive(true);
+        Destroy(obstracle);
     }
 
 }
