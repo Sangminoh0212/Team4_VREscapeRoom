@@ -8,6 +8,8 @@ TagManager:
   - Hand
   - isPushed
   - isNotPushed
+  - Rat
+  - Knife
   layers:
   - Default
   - TransparentFX
@@ -18,9 +20,9 @@ TagManager:
   - Key
   - Body
   - Door
-  - 
-  - 
-  - 
+  - Axe
+  - Socket
+  - Rat
   - 
   - 
   - 
