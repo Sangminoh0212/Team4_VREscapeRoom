@@ -6,6 +6,8 @@ public class Breaks : MonoBehaviour
 {
     public Transform brokenObject;
 
+
+
     public void breakWindow()
     {
         Destroy(gameObject);
