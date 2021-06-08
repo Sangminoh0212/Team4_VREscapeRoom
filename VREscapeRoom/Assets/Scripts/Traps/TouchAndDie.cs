@@ -12,6 +12,8 @@ public class TouchAndDie : MonoBehaviour
 
     public GameObject Hearts;
     private GameObject DestroyHeart;
+    private int coroutineCount = 0;
+    private bool isCoroutine = false;
 
     private void Start()
     {
@@ -24,7 +26,6 @@ public class TouchAndDie : MonoBehaviour
         {
             electricSound.Play();
             transform.GetChild(0).gameObject.SetActive(true);
-            InfoText.text = string.Format("Yor are trapped");
             Invoke("LoseHeart", 2.0f);
         }
     }
@@ -32,10 +33,13 @@ public class TouchAndDie : MonoBehaviour
     void LoseHeart()
     {
         transform.GetChild(0).gameObject.SetActive(false);
-        InfoText.text = string.Format("");
+        InfoText.text = string.Format("Yor are trapped");
+        Hearts.SetActive(true);
+
         if (GameObject.FindGameObjectWithTag("Heart") != null)
         {
-            DestroyHeart = Hearts.gameObject.transform.GetChild(0).gameObject;
+            DestroyHeart = Hearts.transform.GetChild(0).gameObject;
+            isCoroutine = true;
             StartCoroutine("flicker");
         }
     }
@@ -44,13 +48,35 @@ public class TouchAndDie : MonoBehaviour
     {
         while (true)
         {
-            if(Hearts.activeInHierarchy)
+            if (Hearts.activeInHierarchy && coroutineCount == 3)
             {
+                Destroy(DestroyHeart.gameObject);
                 Hearts.SetActive(false);
+                coroutineCount += 1;
+            }
+            else if (DestroyHeart.activeInHierarchy)
+            {
+                coroutineCount += 1;
+
+                DestroyHeart.SetActive(false);
             }
             else
-                Hearts.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
+            {
+                DestroyHeart.SetActive(true);
+            }
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
+
+    private void Update()
+    {
+        if(isCoroutine && coroutineCount == 4)
+        {
+            StopCoroutine("flicker");
+            isCoroutine = false;
+            coroutineCount = 0;
+
+            InfoText.text = string.Format("");
         }
     }
 }
