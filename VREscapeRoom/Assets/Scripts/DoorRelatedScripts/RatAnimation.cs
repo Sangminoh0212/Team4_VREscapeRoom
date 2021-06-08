@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class RatAnimation : MonoBehaviour
 {
     Animator animator;
-
     NavMeshAgent m_rat;
 
     [SerializeField] Transform[] m_tfWayPoints = null;
@@ -27,7 +26,6 @@ public class RatAnimation : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -49,10 +47,9 @@ public class RatAnimation : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Knife")) {
+        if (collision.gameObject.CompareTag("Knife") || collision.gameObject.CompareTag("Axe")) {
             Instantiate(redKey, transform.position+Vector3.up, transform.rotation);
             Destroy(gameObject);
         }
-
     }
 }

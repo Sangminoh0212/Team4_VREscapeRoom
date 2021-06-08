@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Combinekey : MonoBehaviour
 {
-
     public GameObject realKey;
-
 
     private void OnCollisionEnter(Collision collision)
     {

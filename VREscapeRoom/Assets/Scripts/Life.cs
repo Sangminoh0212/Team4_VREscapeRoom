@@ -5,8 +5,7 @@ using UnityEngine;
 public class Life : MonoBehaviour
 {
     private int life = 5;
-    // Start is called before the first frame update
-    
+
     public void Hurt()
     {
         life--;

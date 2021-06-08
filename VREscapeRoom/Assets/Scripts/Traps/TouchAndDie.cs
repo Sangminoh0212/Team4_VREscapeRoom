@@ -10,29 +10,47 @@ public class TouchAndDie : MonoBehaviour
     public AudioSource electricSound;
     public AudioSource gameOverSound;
 
+    public GameObject Hearts;
+    private GameObject DestroyHeart;
+
+    private void Start()
+    {
+        Hearts.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Hand"))
+        if (other.gameObject.CompareTag("Hand") || other.gameObject.CompareTag("MainCamera"))
         {
             electricSound.Play();
             transform.GetChild(0).gameObject.SetActive(true);
             InfoText.text = string.Format("Yor are trapped");
-            Invoke("GameOverMessage", 2.0f);
-        }
-            else if (other.gameObject.CompareTag("MainCamera"))
-            {
-            electricSound.Play();
-            transform.GetChild(0).gameObject.SetActive(true);
-            InfoText.text = string.Format("Yor are trapped");
-            Invoke("GameOverMessage", 2.0f);
+            Invoke("LoseHeart", 2.0f);
         }
     }
 
-    void GameOverMessage()
+    void LoseHeart()
     {
         transform.GetChild(0).gameObject.SetActive(false);
-        gameOverSound.Play();
-        InfoText.text = string.Format("Game Over");
-        Time.timeScale = 0;
+        InfoText.text = string.Format("");
+        if (GameObject.FindGameObjectWithTag("Heart") != null)
+        {
+            DestroyHeart = Hearts.gameObject.transform.GetChild(0).gameObject;
+            StartCoroutine("flicker");
+        }
+    }
+
+    IEnumerator flicker()
+    {
+        while (true)
+        {
+            if(Hearts.activeInHierarchy)
+            {
+                Hearts.SetActive(false);
+            }
+            else
+                Hearts.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }

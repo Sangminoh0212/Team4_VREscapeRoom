@@ -14,7 +14,6 @@ public class PassWordEnter : MonoBehaviour
     public AudioSource gameOverSound;
     public AudioSource wrongPasswordSound;
 
-
     void Update()
     {
         count = 0;
@@ -57,4 +56,3 @@ public class PassWordEnter : MonoBehaviour
         Time.timeScale = 0;
     }
 }
-

@@ -29,23 +29,18 @@ public class HandPresence : MonoBehaviour
 
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
 
-
-
         if (devices.Count > 0)
         {
             targetDevice = devices[0];
-            Debug.Log(targetDevice.name);
 
             GameObject prefab = controllerPrefabs.Find(controller => controller.name == targetDevice.name);
 
             if (prefab)
             {
                 spawnedController = Instantiate(prefab, transform);
-
             }
             else
             {
-                Debug.Log("Controller model not available, using the default model");
                 spawnedController = Instantiate(controllerPrefabs[0], transform);
             }
             spawnedHandModel = Instantiate(handmodelPrefab, transform);
