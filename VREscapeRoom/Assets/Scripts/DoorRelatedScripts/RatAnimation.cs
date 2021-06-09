@@ -12,6 +12,7 @@ public class RatAnimation : MonoBehaviour
     int m_count = 0;
 
     public GameObject redKey;
+    public AudioSource RatDyingSound;
 
     void MoveToNextWayPoint()
     {
@@ -49,6 +50,7 @@ public class RatAnimation : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Knife") || collision.gameObject.CompareTag("Axe")) {
             Instantiate(redKey, transform.position+Vector3.up, transform.rotation);
+            RatDyingSound.Play();
             Destroy(gameObject);
         }
     }

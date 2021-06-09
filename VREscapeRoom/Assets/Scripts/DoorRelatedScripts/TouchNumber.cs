@@ -31,4 +31,12 @@ public class TouchNumber : MonoBehaviour
     {
         isReady = true;
     }
+
+    public void initializeState()
+    {
+        transform.tag = "isNotPushed";
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 0.098f);
+        isReady = false;
+        Invoke("Locked", 2.0f);
+    }
 }

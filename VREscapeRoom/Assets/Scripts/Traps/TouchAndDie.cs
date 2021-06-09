@@ -8,7 +8,7 @@ public class TouchAndDie : MonoBehaviour
 {
     public TextMeshProUGUI InfoText;
     public AudioSource electricSound;
-    public AudioSource gameOverSound;
+    public AudioSource hurtSound;
 
     public GameObject Hearts;
     private GameObject DestroyHeart;
@@ -25,6 +25,7 @@ public class TouchAndDie : MonoBehaviour
         if (other.gameObject.CompareTag("Hand") || other.gameObject.CompareTag("MainCamera"))
         {
             electricSound.Play();
+            hurtSound.Play();
             transform.GetChild(0).gameObject.SetActive(true);
             Invoke("LoseHeart", 2.0f);
         }

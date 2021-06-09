@@ -9,7 +9,6 @@ public class KeyDoorInteraction : MonoBehaviour
 
     public void SelectEntered(SelectEnterEventArgs args)
     {
-        Debug.Log("Key!!");
         handle.SetActive(true);
     }
 }
