@@ -894,6 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenObject: {fileID: 6996196713729544722, guid: da5cffd52919cd3409ca8a813278cba1, type: 3}
+  WindowBreakingSound: {fileID: 0}
 --- !u!114 &144513087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,6 +1212,63 @@ Transform:
   m_Father: {fileID: 1714515788}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &205277873
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+      propertyPath: m_Name
+      value: XR Device Simulator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
 --- !u!1001 &208822910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3084,6 +3142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenObject: {fileID: 6996196713729544722, guid: da5cffd52919cd3409ca8a813278cba1, type: 3}
+  WindowBreakingSound: {fileID: 0}
 --- !u!4 &466068876 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4154856822567276686, guid: 8a858574602ea9544be048feab905525, type: 3}
@@ -3235,8 +3294,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoText: {fileID: 0}
-  gameOverSound: {fileID: 2018999375}
   wrongPasswordSound: {fileID: 268151247}
+  hurtSound: {fileID: 0}
+  Hearts: {fileID: 0}
+  OnPasswordEntered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &479575748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6235,7 +6298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137799302}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.29940757, y: -0.51677734, z: -4.5108967}
+  m_LocalPosition: {x: 0.29940757, y: -0.51677734, z: -3.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1704095880}
@@ -6816,6 +6879,7 @@ MonoBehaviour:
   - {fileID: 1817113843}
   - {fileID: 1137799303}
   redKey: {fileID: 2263587532266664481, guid: 6bc67ee5c6f57ec4da51a068416377d1, type: 3}
+  RatDyingSound: {fileID: 0}
 --- !u!195 &1319320744
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6856,19 +6920,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gas: {fileID: 778269220}
---- !u!114 &1372000504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372000501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f8a6e323c292b4bbcde82a1f1b11b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gas: {fileID: 778269220}
+  InfoText: {fileID: 0}
+  hurtSound: {fileID: 0}
+  Hearts: {fileID: 0}
 --- !u!114 &1372000505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6902,7 +6956,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1372000504}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: dangerousBox, Assembly-CSharp
         m_MethodName: Gas
         m_Mode: 1
@@ -7289,7 +7343,7 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: 0
+    min: -120
     max: 120
     bounciness: 0
     bounceMinVelocity: 0.2
@@ -10400,7 +10454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817113842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.8694077, y: -0.51677734, z: -2.990897}
+  m_LocalPosition: {x: 6.14, y: -0.51677734, z: -2.990897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1704095880}
@@ -11921,7 +11975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoText: {fileID: 0}
   electricSound: {fileID: 427324233}
-  gameOverSound: {fileID: 2018999375}
+  hurtSound: {fileID: 0}
   Hearts: {fileID: 0}
 --- !u!54 &2022376049
 Rigidbody:
@@ -12272,7 +12326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077500323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.100592405, y: -0.51677734, z: 4.1291027}
+  m_LocalPosition: {x: -0.63, y: -0.51677734, z: 4.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1704095880}
