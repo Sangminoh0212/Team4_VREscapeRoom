@@ -48,7 +48,7 @@ public class RatAnimation : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Knife") || collision.gameObject.CompareTag("Axe")) {
+        if (collision.gameObject.CompareTag("Axe")) {
             Instantiate(redKey, transform.position+Vector3.up, transform.rotation);
             RatDyingSound.Play();
             Destroy(gameObject);

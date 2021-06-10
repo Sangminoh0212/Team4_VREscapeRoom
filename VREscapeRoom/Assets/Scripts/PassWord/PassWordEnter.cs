@@ -11,8 +11,12 @@ public class PassWordEnter : MonoBehaviour
     private int EnteredNumberCount = 0;
 
     public TextMeshProUGUI InfoText;
+    public GameObject GameClearPanel;
     public AudioSource wrongPasswordSound;
     public AudioSource hurtSound;
+
+    public AudioSource bgmSound;
+    public AudioSource GameClearSound;
 
     public GameObject Hearts;
     private GameObject DestroyHeart;
@@ -21,6 +25,10 @@ public class PassWordEnter : MonoBehaviour
 
     public UnityEvent OnPasswordEntered;
 
+    private void Start()
+    {
+        GameClearPanel.SetActive(false);
+    }
     void Update()
     {
         if (!isCoroutine)
@@ -62,11 +70,22 @@ public class PassWordEnter : MonoBehaviour
             coroutineCount = 0;
 
             InfoText.text = string.Format("");
+            Hearts.SetActive(true);
+            if (GameObject.FindGameObjectWithTag("Heart") == null)
+            {
+                GameObject life = GameObject.FindGameObjectWithTag("Life");
+                Destroy(life);
+            }
+            Hearts.SetActive(false);
         }
     }
 
     void GameClear()
     {
+        InfoText.text = string.Format("");
+        GameClearPanel.SetActive(true);
+        bgmSound.Stop();
+        GameClearSound.Play();
         InfoText.text = string.Format("Game clear");
         Time.timeScale = 0;
     }

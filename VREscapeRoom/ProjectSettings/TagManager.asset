@@ -12,6 +12,8 @@ TagManager:
   - Knife
   - Axe
   - Heart
+  - Head
+  - Life
   layers:
   - Default
   - TransparentFX
@@ -25,8 +27,8 @@ TagManager:
   - Axe
   - Socket
   - Rat
-  - 
-  - 
+  - Monster
+  - Flame
   - 
   - 
   - 
@@ -48,4 +50,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Flame
+    uniqueID: 7754981
     locked: 0

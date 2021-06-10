@@ -71,13 +71,20 @@ public class TouchAndDie : MonoBehaviour
 
     private void Update()
     {
-        if(isCoroutine && coroutineCount == 4)
+        if (isCoroutine && coroutineCount == 4)
         {
             StopCoroutine("flicker");
             isCoroutine = false;
             coroutineCount = 0;
 
             InfoText.text = string.Format("");
+            Hearts.SetActive(true);
+            if (GameObject.FindGameObjectWithTag("Heart") == null)
+            {
+                GameObject life = GameObject.FindGameObjectWithTag("Life");
+                Destroy(life);
+            }
+            Hearts.SetActive(false);
         }
     }
 }
