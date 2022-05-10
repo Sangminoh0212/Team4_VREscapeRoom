@@ -63,7 +63,8 @@ public class M_Climber : MonoBehaviour
     {
         if(previousPositions.TryGetValue(hand, out Vector3 previousPos))
         {
-            currentVelocity = (hand.positionAction.action.ReadValue<Vector3>() - previousPos) / Time.fixedDeltaTime;
+            currentVelocity = (hand.positionAction.action.ReadValue<Vector3>() 
+                - previousPos) / Time.fixedDeltaTime;
 
             characterController.Move(transform.rotation * -currentVelocity * Time.fixedDeltaTime);
 
